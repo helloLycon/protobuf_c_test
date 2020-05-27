@@ -57,21 +57,21 @@ static const ProtobufCFieldDescriptor user_information__field_descriptors[5] =
   {
     "name",
     1,
-    PROTOBUF_C_LABEL_NONE,
+    PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
     offsetof(UserInformation, name),
     NULL,
-    &protobuf_c_empty_string,
+    NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
     "age",
     2,
-    PROTOBUF_C_LABEL_NONE,
+    PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_UINT32,
-    0,   /* quantifier_offset */
+    offsetof(UserInformation, has_age),
     offsetof(UserInformation, age),
     NULL,
     NULL,
@@ -81,21 +81,21 @@ static const ProtobufCFieldDescriptor user_information__field_descriptors[5] =
   {
     "phone",
     3,
-    PROTOBUF_C_LABEL_NONE,
+    PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
     offsetof(UserInformation, phone),
     NULL,
-    &protobuf_c_empty_string,
+    NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
     "stat",
     4,
-    PROTOBUF_C_LABEL_NONE,
+    PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_ENUM,
-    0,   /* quantifier_offset */
+    offsetof(UserInformation, has_stat),
     offsetof(UserInformation, stat),
     &user_status__descriptor,
     NULL,
@@ -105,12 +105,12 @@ static const ProtobufCFieldDescriptor user_information__field_descriptors[5] =
   {
     "email",
     5,
-    PROTOBUF_C_LABEL_NONE,
+    PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
     offsetof(UserInformation, email),
     NULL,
-    &protobuf_c_empty_string,
+    NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },

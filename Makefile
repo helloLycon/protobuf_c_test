@@ -18,5 +18,8 @@ $(TARGET):$(OBJS)
 clean:
 	rm -rf $(TARGET) $(OBJS)
 
+proto:
+	protoc-c UserInformation.proto --c_out=./
+
 %.o:%.c
 	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
