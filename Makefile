@@ -1,4 +1,4 @@
-CC=gcc
+CC=mips-openwrt-linux-gcc
 CFLAGS=-Wall -std=gnu99
 
 TARGET=start
