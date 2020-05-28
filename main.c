@@ -25,7 +25,7 @@ static size_t pack_user_data(uint8_t *buffer)
     cardInfo.cardtype = 44;
     cardInfo.cardversion = 55;
     cardInfo.cardnetworknum = 66;
-    cardInfo.enabledtime = "200101";
+    //cardInfo.enabledtime = "200101";
     cardInfo.expiretime = "210101";
     cardInfo.carplatenumber = "浙C78992";
     cardInfo.usertype = 77;
@@ -56,10 +56,10 @@ static size_t unpack_user_data(const uint8_t *buffer, size_t len)
     if(userInfo->has_staffidentifier) {
         printf("userInfo->staffidentifier = %d\n", userInfo->staffidentifier);
     }
-    if(userInfo->owername[0]) {
+    if(userInfo->owername) {
         printf("userInfo->owername = %s\n", userInfo->owername);
     }
-    if(userInfo->owercertificatenum[0]) {
+    if(userInfo->owercertificatenum) {
         printf("userInfo->owercertificatenum = %s\n", userInfo->owercertificatenum);
     }
     if(userInfo->has_owercertificatetype) {
@@ -67,11 +67,38 @@ static size_t unpack_user_data(const uint8_t *buffer, size_t len)
     }
 
     const Information__CardInformation *cardInfo = Info->cardinfo;
+    if(cardInfo->cardissueridentifier) {
+        printf("cardInfo->cardissueridentifier = %s\n", cardInfo->cardissueridentifier);
+    }
+    if(cardInfo->has_cardtype) {
+        printf("cardInfo->cardtype = %d\n", cardInfo->cardtype);
+    }
+    if(cardInfo->has_cardversion) {
+        printf("cardInfo->cardversion = %d\n", cardInfo->cardversion);
+    }
+    if(cardInfo->has_cardnetworknum) {
+        printf("cardInfo->cardnetworknum = %d\n", cardInfo->cardnetworknum);
+    }
+    if(cardInfo->has_carduserinternalnum) {
+        printf("cardInfo->carduserinternalnum = %d\n", cardInfo->carduserinternalnum);
+    }
+    if(cardInfo->enabledtime) {
+        printf("cardInfo->enabledtime = %s\n", cardInfo->enabledtime);
+    }
+    if(cardInfo->expiretime) {
+        printf("cardInfo->expiretime = %s\n", cardInfo->expiretime);
+    }
+    if(cardInfo->carplatenumber) {
+        printf("cardInfo->carplatenumber = %s\n", cardInfo->carplatenumber);
+    }
     if(cardInfo->has_usertype) {
         printf("cardInfo->usertype = %d\n", cardInfo->usertype);
     }
-    if(cardInfo->carplatenumber[0]) {
-        printf("cardInfo->carplatenumber = %s\n", cardInfo->carplatenumber);
+    if(cardInfo->has_carplatecolor) {
+        printf("cardInfo->carplatecolor = %d\n", cardInfo->carplatecolor);
+    }
+    if(cardInfo->has_carmodel) {
+        printf("cardInfo->carmodel = %d\n", cardInfo->carmodel);
     }
     information__free_unpacked(Info, NULL);
 
