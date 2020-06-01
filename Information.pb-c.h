@@ -18,6 +18,7 @@ PROTOBUF_C__BEGIN_DECLS
 typedef struct _Information Information;
 typedef struct _Information__UserInformation Information__UserInformation;
 typedef struct _Information__CardInformation Information__CardInformation;
+typedef struct _RepeatedInformation RepeatedInformation;
 
 
 /* --- enums --- */
@@ -80,6 +81,17 @@ struct  _Information
     , NULL, NULL }
 
 
+struct  _RepeatedInformation
+{
+  ProtobufCMessage base;
+  size_t n_infos;
+  Information **infos;
+};
+#define REPEATED_INFORMATION__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&repeated_information__descriptor) \
+    , 0,NULL }
+
+
 /* Information__UserInformation methods */
 void   information__user_information__init
                      (Information__UserInformation         *message);
@@ -105,6 +117,25 @@ Information *
 void   information__free_unpacked
                      (Information *message,
                       ProtobufCAllocator *allocator);
+/* RepeatedInformation methods */
+void   repeated_information__init
+                     (RepeatedInformation         *message);
+size_t repeated_information__get_packed_size
+                     (const RepeatedInformation   *message);
+size_t repeated_information__pack
+                     (const RepeatedInformation   *message,
+                      uint8_t             *out);
+size_t repeated_information__pack_to_buffer
+                     (const RepeatedInformation   *message,
+                      ProtobufCBuffer     *buffer);
+RepeatedInformation *
+       repeated_information__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data);
+void   repeated_information__free_unpacked
+                     (RepeatedInformation *message,
+                      ProtobufCAllocator *allocator);
 /* --- per-message closures --- */
 
 typedef void (*Information__UserInformation_Closure)
@@ -116,6 +147,9 @@ typedef void (*Information__CardInformation_Closure)
 typedef void (*Information_Closure)
                  (const Information *message,
                   void *closure_data);
+typedef void (*RepeatedInformation_Closure)
+                 (const RepeatedInformation *message,
+                  void *closure_data);
 
 /* --- services --- */
 
@@ -125,6 +159,7 @@ typedef void (*Information_Closure)
 extern const ProtobufCMessageDescriptor information__descriptor;
 extern const ProtobufCMessageDescriptor information__user_information__descriptor;
 extern const ProtobufCMessageDescriptor information__card_information__descriptor;
+extern const ProtobufCMessageDescriptor repeated_information__descriptor;
 
 PROTOBUF_C__END_DECLS
 

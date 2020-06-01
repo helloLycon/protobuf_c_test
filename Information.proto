@@ -28,3 +28,6 @@ message Information {
 	CardInformation cardInfo = 2;
 }
 
+message RepeatedInformation {
+	repeated Information infos = 1;
+}

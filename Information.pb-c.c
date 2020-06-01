@@ -64,6 +64,51 @@ void   information__free_unpacked
   assert(message->base.descriptor == &information__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
+void   repeated_information__init
+                     (RepeatedInformation         *message)
+{
+  static const RepeatedInformation init_value = REPEATED_INFORMATION__INIT;
+  *message = init_value;
+}
+size_t repeated_information__get_packed_size
+                     (const RepeatedInformation *message)
+{
+  assert(message->base.descriptor == &repeated_information__descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t repeated_information__pack
+                     (const RepeatedInformation *message,
+                      uint8_t       *out)
+{
+  assert(message->base.descriptor == &repeated_information__descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t repeated_information__pack_to_buffer
+                     (const RepeatedInformation *message,
+                      ProtobufCBuffer *buffer)
+{
+  assert(message->base.descriptor == &repeated_information__descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+RepeatedInformation *
+       repeated_information__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data)
+{
+  return (RepeatedInformation *)
+     protobuf_c_message_unpack (&repeated_information__descriptor,
+                                allocator, len, data);
+}
+void   repeated_information__free_unpacked
+                     (RepeatedInformation *message,
+                      ProtobufCAllocator *allocator)
+{
+  if(!message)
+    return;
+  assert(message->base.descriptor == &repeated_information__descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
 static const ProtobufCFieldDescriptor information__user_information__field_descriptors[5] =
 {
   {
@@ -371,5 +416,43 @@ const ProtobufCMessageDescriptor information__descriptor =
   information__field_indices_by_name,
   1,  information__number_ranges,
   (ProtobufCMessageInit) information__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor repeated_information__field_descriptors[1] =
+{
+  {
+    "infos",
+    1,
+    PROTOBUF_C_LABEL_REPEATED,
+    PROTOBUF_C_TYPE_MESSAGE,
+    offsetof(RepeatedInformation, n_infos),
+    offsetof(RepeatedInformation, infos),
+    &information__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned repeated_information__field_indices_by_name[] = {
+  0,   /* field[0] = infos */
+};
+static const ProtobufCIntRange repeated_information__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 1 }
+};
+const ProtobufCMessageDescriptor repeated_information__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "RepeatedInformation",
+  "RepeatedInformation",
+  "RepeatedInformation",
+  "",
+  sizeof(RepeatedInformation),
+  1,
+  repeated_information__field_descriptors,
+  repeated_information__field_indices_by_name,
+  1,  repeated_information__number_ranges,
+  (ProtobufCMessageInit) repeated_information__init,
   NULL,NULL,NULL    /* reserved[123] */
 };

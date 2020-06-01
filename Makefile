@@ -22,5 +22,8 @@ clean:
 proto:
 	protoc-c Information.proto --c_out=./
 
+java-proto:
+	protoc Information.proto --java_out=./
+
 %.o:%.c
 	$(CC) $(CFLAGS) $(INC) -o $@ -c $<

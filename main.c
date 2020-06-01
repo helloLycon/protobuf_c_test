@@ -8,6 +8,7 @@
 
 static size_t pack_user_data(uint8_t *buffer)
 {
+    RepeatedInformation repInfo = REPEATED_INFORMATION__INIT;
     Information Info = INFORMATION__INIT;
     Information__UserInformation userInfo = INFORMATION__USER_INFORMATION__INIT;
     /* 有数据要设置has_xxx字段 */
@@ -36,20 +37,23 @@ static size_t pack_user_data(uint8_t *buffer)
 
     Info.userinfo = &userInfo;
     Info.cardinfo = &cardInfo;
+    Information *infoList[2] = {&Info, &Info/* &Info2, &Info3 */};
+    repInfo.infos = infoList;
+    repInfo.n_infos = 2;       /* Info数量 */
 
-    return information__pack(&Info, buffer);
+    return repeated_information__pack(&repInfo, buffer);
 }
 
 static size_t unpack_user_data(const uint8_t *buffer, size_t len)
 {
-    Information *Info =  information__unpack(NULL, len, buffer);
-    if(!Info){
-        printf("user_information__unpack is fail!!!\n");
+    RepeatedInformation *repInfo =  repeated_information__unpack(NULL, len, buffer);
+    if(!repInfo){
+        printf("repeated_information__unpack is fail!!!\n");
         return -1;
     }
 
     //printf("Unpack: %s %d %s %s\n", userInfo->name, userInfo->age, userInfo->phone, userInfo->email);
-    const Information__UserInformation *userInfo = Info->userinfo;
+    const Information__UserInformation *userInfo = repInfo->infos[0]->userinfo;
     if(userInfo->has_oweridentifier) {
         printf("userInfo->owerIdentifier = %d\n", userInfo->oweridentifier);
     }
@@ -66,7 +70,7 @@ static size_t unpack_user_data(const uint8_t *buffer, size_t len)
         printf("userInfo->owercertificatetype = %d\n", userInfo->owercertificatetype);
     }
 
-    const Information__CardInformation *cardInfo = Info->cardinfo;
+    const Information__CardInformation *cardInfo = repInfo->infos[0]->cardinfo;
     if(cardInfo->cardissueridentifier) {
         printf("cardInfo->cardissueridentifier = %s\n", cardInfo->cardissueridentifier);
     }
@@ -100,8 +104,61 @@ static size_t unpack_user_data(const uint8_t *buffer, size_t len)
     if(cardInfo->has_carmodel) {
         printf("cardInfo->carmodel = %d\n", cardInfo->carmodel);
     }
-    information__free_unpacked(Info, NULL);
 
+/*------------------------------ infos[1] -----------------------------*/
+    //printf("Unpack: %s %d %s %s\n", userInfo->name, userInfo->age, userInfo->phone, userInfo->email);
+    const Information__UserInformation *userInfo2 = repInfo->infos[1]->userinfo;
+    if(userInfo2->has_oweridentifier) {
+        printf("userInfo->owerIdentifier = %d\n", userInfo2->oweridentifier);
+    }
+    if(userInfo2->has_staffidentifier) {
+        printf("userInfo->staffidentifier = %d\n", userInfo2->staffidentifier);
+    }
+    if(userInfo2->owername) {
+        printf("userInfo->owername = %s\n", userInfo2->owername);
+    }
+    if(userInfo2->owercertificatenum) {
+        printf("userInfo->owercertificatenum = %s\n", userInfo2->owercertificatenum);
+    }
+    if(userInfo2->has_owercertificatetype) {
+        printf("userInfo->owercertificatetype = %d\n", userInfo2->owercertificatetype);
+    }
+
+    const Information__CardInformation *cardInfo2 = repInfo->infos[1]->cardinfo;
+    if(cardInfo2->cardissueridentifier) {
+        printf("cardInfo->cardissueridentifier = %s\n", cardInfo2->cardissueridentifier);
+    }
+    if(cardInfo2->has_cardtype) {
+        printf("cardInfo->cardtype = %d\n", cardInfo2->cardtype);
+    }
+    if(cardInfo2->has_cardversion) {
+        printf("cardInfo->cardversion = %d\n", cardInfo2->cardversion);
+    }
+    if(cardInfo2->has_cardnetworknum) {
+        printf("cardInfo->cardnetworknum = %d\n", cardInfo2->cardnetworknum);
+    }
+    if(cardInfo2->has_carduserinternalnum) {
+        printf("cardInfo->carduserinternalnum = %d\n", cardInfo2->carduserinternalnum);
+    }
+    if(cardInfo2->enabledtime) {
+        printf("cardInfo->enabledtime = %s\n", cardInfo2->enabledtime);
+    }
+    if(cardInfo2->expiretime) {
+        printf("cardInfo->expiretime = %s\n", cardInfo2->expiretime);
+    }
+    if(cardInfo2->carplatenumber) {
+        printf("cardInfo->carplatenumber = %s\n", cardInfo2->carplatenumber);
+    }
+    if(cardInfo2->has_usertype) {
+        printf("cardInfo->usertype = %d\n", cardInfo2->usertype);
+    }
+    if(cardInfo2->has_carplatecolor) {
+        printf("cardInfo->carplatecolor = %d\n", cardInfo2->carplatecolor);
+    }
+    if(cardInfo2->has_carmodel) {
+        printf("cardInfo->carmodel = %d\n", cardInfo2->carmodel);
+    }
+    repeated_information__free_unpacked(repInfo, NULL);
     return 0;
 }
 
