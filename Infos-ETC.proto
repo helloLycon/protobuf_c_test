@@ -1,0 +1,24 @@
+syntax = "proto3";
+//option java_outer_classname = "CompareModel";//生成的数据访问类的类名
+                       
+
+message Infos
+{
+  message Information {
+    bytes cardIssuerID = 1;//发卡方标识
+    bytes cardType = 2;//卡片类型
+    bytes cardVer = 3;//卡片版本号
+    bytes cardNetID = 4;//卡片网络编号
+    bytes cardInternalID = 5;//用户卡内部编号
+    bytes enableTime = 6;//启用时间
+    bytes expiredTime = 7;//到期时间
+    bytes carNO = 8;//	车牌号码
+    bytes userType = 9;//用户类型
+    bytes carColor = 10;//	车牌颜色
+    bytes carModel = 11;//车型
+    bytes cardHolderName = 12;//持卡人姓名
+    bytes cardHolderID = 13;//持卡人证件号码
+    bytes cardHolderIDType = 14;//持卡人证件类型
+  }
+  repeated  Information information =1;
+}
