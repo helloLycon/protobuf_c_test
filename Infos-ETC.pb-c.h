@@ -97,10 +97,12 @@ struct  _Infos__Information
    */
   protobuf_c_boolean has_cardholderidtype;
   ProtobufCBinaryData cardholderidtype;
+  protobuf_c_boolean has_obumac;
+  ProtobufCBinaryData obumac;
 };
 #define INFOS__INFORMATION__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&infos__information__descriptor) \
-    , 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL} }
+    , 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL} }
 
 
 struct  _Infos

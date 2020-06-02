@@ -58,7 +58,7 @@ void   infos__free_unpacked
   assert(message->base.descriptor == &infos__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-static const ProtobufCFieldDescriptor infos__information__field_descriptors[14] =
+static const ProtobufCFieldDescriptor infos__information__field_descriptors[15] =
 {
   {
     "cardIssuerID",
@@ -228,6 +228,18 @@ static const ProtobufCFieldDescriptor infos__information__field_descriptors[14] 
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "obuMac",
+    15,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BYTES,
+    offsetof(Infos__Information, has_obumac),
+    offsetof(Infos__Information, obumac),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned infos__information__field_indices_by_name[] = {
   9,   /* field[9] = carColor */
@@ -243,12 +255,13 @@ static const unsigned infos__information__field_indices_by_name[] = {
   2,   /* field[2] = cardVer */
   5,   /* field[5] = enableTime */
   6,   /* field[6] = expiredTime */
+  14,   /* field[14] = obuMac */
   8,   /* field[8] = userType */
 };
 static const ProtobufCIntRange infos__information__number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 14 }
+  { 0, 15 }
 };
 const ProtobufCMessageDescriptor infos__information__descriptor =
 {
@@ -258,7 +271,7 @@ const ProtobufCMessageDescriptor infos__information__descriptor =
   "Infos__Information",
   "",
   sizeof(Infos__Information),
-  14,
+  15,
   infos__information__field_descriptors,
   infos__information__field_indices_by_name,
   1,  infos__information__number_ranges,

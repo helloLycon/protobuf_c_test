@@ -19,6 +19,7 @@ message Infos
     bytes cardHolderName = 12;//持卡人姓名
     bytes cardHolderID = 13;//持卡人证件号码
     bytes cardHolderIDType = 14;//持卡人证件类型
+    bytes obuMac = 15;
   }
   repeated  Information information =1;
 }
