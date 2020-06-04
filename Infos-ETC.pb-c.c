@@ -58,11 +58,35 @@ void   infos__free_unpacked
   assert(message->base.descriptor == &infos__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-static const ProtobufCFieldDescriptor infos__information__field_descriptors[15] =
+static const ProtobufCFieldDescriptor infos__information__field_descriptors[16] =
 {
   {
-    "cardIssuerID",
+    "ubMac",
     1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BYTES,
+    offsetof(Infos__Information, has_ubmac),
+    offsetof(Infos__Information, ubmac),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "time",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT32,
+    offsetof(Infos__Information, has_time),
+    offsetof(Infos__Information, time),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "cardIssuerID",
+    10,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_BYTES,
     offsetof(Infos__Information, has_cardissuerid),
@@ -74,7 +98,7 @@ static const ProtobufCFieldDescriptor infos__information__field_descriptors[15] 
   },
   {
     "cardType",
-    2,
+    11,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_BYTES,
     offsetof(Infos__Information, has_cardtype),
@@ -86,7 +110,7 @@ static const ProtobufCFieldDescriptor infos__information__field_descriptors[15] 
   },
   {
     "cardVer",
-    3,
+    12,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_BYTES,
     offsetof(Infos__Information, has_cardver),
@@ -98,7 +122,7 @@ static const ProtobufCFieldDescriptor infos__information__field_descriptors[15] 
   },
   {
     "cardNetID",
-    4,
+    13,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_BYTES,
     offsetof(Infos__Information, has_cardnetid),
@@ -110,7 +134,7 @@ static const ProtobufCFieldDescriptor infos__information__field_descriptors[15] 
   },
   {
     "cardInternalID",
-    5,
+    14,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_BYTES,
     offsetof(Infos__Information, has_cardinternalid),
@@ -122,7 +146,7 @@ static const ProtobufCFieldDescriptor infos__information__field_descriptors[15] 
   },
   {
     "enableTime",
-    6,
+    15,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_BYTES,
     offsetof(Infos__Information, has_enabletime),
@@ -134,7 +158,7 @@ static const ProtobufCFieldDescriptor infos__information__field_descriptors[15] 
   },
   {
     "expiredTime",
-    7,
+    16,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_BYTES,
     offsetof(Infos__Information, has_expiredtime),
@@ -146,7 +170,7 @@ static const ProtobufCFieldDescriptor infos__information__field_descriptors[15] 
   },
   {
     "carNO",
-    8,
+    17,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_BYTES,
     offsetof(Infos__Information, has_carno),
@@ -158,7 +182,7 @@ static const ProtobufCFieldDescriptor infos__information__field_descriptors[15] 
   },
   {
     "userType",
-    9,
+    18,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_BYTES,
     offsetof(Infos__Information, has_usertype),
@@ -170,7 +194,7 @@ static const ProtobufCFieldDescriptor infos__information__field_descriptors[15] 
   },
   {
     "carColor",
-    10,
+    19,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_BYTES,
     offsetof(Infos__Information, has_carcolor),
@@ -182,7 +206,7 @@ static const ProtobufCFieldDescriptor infos__information__field_descriptors[15] 
   },
   {
     "carModel",
-    11,
+    20,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_BYTES,
     offsetof(Infos__Information, has_carmodel),
@@ -194,7 +218,7 @@ static const ProtobufCFieldDescriptor infos__information__field_descriptors[15] 
   },
   {
     "cardHolderName",
-    12,
+    21,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_BYTES,
     offsetof(Infos__Information, has_cardholdername),
@@ -206,7 +230,7 @@ static const ProtobufCFieldDescriptor infos__information__field_descriptors[15] 
   },
   {
     "cardHolderID",
-    13,
+    22,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_BYTES,
     offsetof(Infos__Information, has_cardholderid),
@@ -218,7 +242,7 @@ static const ProtobufCFieldDescriptor infos__information__field_descriptors[15] 
   },
   {
     "cardHolderIDType",
-    14,
+    23,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_BYTES,
     offsetof(Infos__Information, has_cardholderidtype),
@@ -228,40 +252,30 @@ static const ProtobufCFieldDescriptor infos__information__field_descriptors[15] 
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
-  {
-    "obuMac",
-    15,
-    PROTOBUF_C_LABEL_OPTIONAL,
-    PROTOBUF_C_TYPE_BYTES,
-    offsetof(Infos__Information, has_obumac),
-    offsetof(Infos__Information, obumac),
-    NULL,
-    NULL,
-    0,             /* flags */
-    0,NULL,NULL    /* reserved1,reserved2, etc */
-  },
 };
 static const unsigned infos__information__field_indices_by_name[] = {
-  9,   /* field[9] = carColor */
-  10,   /* field[10] = carModel */
-  7,   /* field[7] = carNO */
-  12,   /* field[12] = cardHolderID */
-  13,   /* field[13] = cardHolderIDType */
-  11,   /* field[11] = cardHolderName */
-  4,   /* field[4] = cardInternalID */
-  0,   /* field[0] = cardIssuerID */
-  3,   /* field[3] = cardNetID */
-  1,   /* field[1] = cardType */
-  2,   /* field[2] = cardVer */
-  5,   /* field[5] = enableTime */
-  6,   /* field[6] = expiredTime */
-  14,   /* field[14] = obuMac */
-  8,   /* field[8] = userType */
+  11,   /* field[11] = carColor */
+  12,   /* field[12] = carModel */
+  9,   /* field[9] = carNO */
+  14,   /* field[14] = cardHolderID */
+  15,   /* field[15] = cardHolderIDType */
+  13,   /* field[13] = cardHolderName */
+  6,   /* field[6] = cardInternalID */
+  2,   /* field[2] = cardIssuerID */
+  5,   /* field[5] = cardNetID */
+  3,   /* field[3] = cardType */
+  4,   /* field[4] = cardVer */
+  7,   /* field[7] = enableTime */
+  8,   /* field[8] = expiredTime */
+  1,   /* field[1] = time */
+  0,   /* field[0] = ubMac */
+  10,   /* field[10] = userType */
 };
-static const ProtobufCIntRange infos__information__number_ranges[1 + 1] =
+static const ProtobufCIntRange infos__information__number_ranges[2 + 1] =
 {
   { 1, 0 },
-  { 0, 15 }
+  { 10, 2 },
+  { 0, 16 }
 };
 const ProtobufCMessageDescriptor infos__information__descriptor =
 {
@@ -271,10 +285,10 @@ const ProtobufCMessageDescriptor infos__information__descriptor =
   "Infos__Information",
   "",
   sizeof(Infos__Information),
-  15,
+  16,
   infos__information__field_descriptors,
   infos__information__field_indices_by_name,
-  1,  infos__information__number_ranges,
+  2,  infos__information__number_ranges,
   (ProtobufCMessageInit) infos__information__init,
   NULL,NULL,NULL    /* reserved[123] */
 };

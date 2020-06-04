@@ -27,6 +27,10 @@ typedef struct _Infos__Information Infos__Information;
 struct  _Infos__Information
 {
   ProtobufCMessage base;
+  protobuf_c_boolean has_ubmac;
+  ProtobufCBinaryData ubmac;
+  protobuf_c_boolean has_time;
+  uint32_t time;
   /*
    *发卡方标识
    */
@@ -97,12 +101,10 @@ struct  _Infos__Information
    */
   protobuf_c_boolean has_cardholderidtype;
   ProtobufCBinaryData cardholderidtype;
-  protobuf_c_boolean has_obumac;
-  ProtobufCBinaryData obumac;
 };
 #define INFOS__INFORMATION__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&infos__information__descriptor) \
-    , 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL} }
+    , 0, {0,NULL}, 0, 0, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL} }
 
 
 struct  _Infos
