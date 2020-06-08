@@ -58,7 +58,7 @@ void   infos__free_unpacked
   assert(message->base.descriptor == &infos__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-static const ProtobufCFieldDescriptor infos__information__field_descriptors[16] =
+static const ProtobufCFieldDescriptor infos__information__field_descriptors[18] =
 {
   {
     "ubMac",
@@ -252,6 +252,30 @@ static const ProtobufCFieldDescriptor infos__information__field_descriptors[16] 
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "obuInfo",
+    24,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BYTES,
+    offsetof(Infos__Information, has_obuinfo),
+    offsetof(Infos__Information, obuinfo),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "file0019",
+    25,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BYTES,
+    offsetof(Infos__Information, has_file0019),
+    offsetof(Infos__Information, file0019),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned infos__information__field_indices_by_name[] = {
   11,   /* field[11] = carColor */
@@ -267,6 +291,8 @@ static const unsigned infos__information__field_indices_by_name[] = {
   4,   /* field[4] = cardVer */
   7,   /* field[7] = enableTime */
   8,   /* field[8] = expiredTime */
+  17,   /* field[17] = file0019 */
+  16,   /* field[16] = obuInfo */
   1,   /* field[1] = time */
   0,   /* field[0] = ubMac */
   10,   /* field[10] = userType */
@@ -275,7 +301,7 @@ static const ProtobufCIntRange infos__information__number_ranges[2 + 1] =
 {
   { 1, 0 },
   { 10, 2 },
-  { 0, 16 }
+  { 0, 18 }
 };
 const ProtobufCMessageDescriptor infos__information__descriptor =
 {
@@ -285,7 +311,7 @@ const ProtobufCMessageDescriptor infos__information__descriptor =
   "Infos__Information",
   "",
   sizeof(Infos__Information),
-  16,
+  18,
   infos__information__field_descriptors,
   infos__information__field_indices_by_name,
   2,  infos__information__number_ranges,

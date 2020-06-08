@@ -21,6 +21,8 @@ message Infos
     bytes cardHolderName = 21;//持卡人姓名
     bytes cardHolderID = 22;//持卡人证件号码
     bytes cardHolderIDType = 23;//持卡人证件类型
+    bytes obuInfo = 24;//OBU信息,合同
+    bytes file0019= 25;//文件0019，高速最后收费站信息
   }
   repeated  Information information =1;
 }

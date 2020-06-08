@@ -101,10 +101,20 @@ struct  _Infos__Information
    */
   protobuf_c_boolean has_cardholderidtype;
   ProtobufCBinaryData cardholderidtype;
+  /*
+   *OBU信息,合同
+   */
+  protobuf_c_boolean has_obuinfo;
+  ProtobufCBinaryData obuinfo;
+  /*
+   *文件0019，高速最后收费站信息
+   */
+  protobuf_c_boolean has_file0019;
+  ProtobufCBinaryData file0019;
 };
 #define INFOS__INFORMATION__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&infos__information__descriptor) \
-    , 0, {0,NULL}, 0, 0, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL} }
+    , 0, {0,NULL}, 0, 0, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL} }
 
 
 struct  _Infos
