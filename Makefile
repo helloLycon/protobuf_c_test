@@ -1,5 +1,4 @@
-CC=mips-openwrt-linux-gcc
-#CC=gcc
+CC=gcc
 CFLAGS=-Wall -std=gnu99
 
 PROTO_NAME=Infos-ETC

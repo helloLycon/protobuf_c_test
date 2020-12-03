@@ -111,10 +111,20 @@ struct  _Infos__Information
    */
   protobuf_c_boolean has_file0019;
   ProtobufCBinaryData file0019;
+  /*
+   * obu类型
+   */
+  protobuf_c_boolean has_obutype;
+  ProtobufCBinaryData obutype;
+  /*
+   *经纬度信息
+   */
+  protobuf_c_boolean has_gps;
+  ProtobufCBinaryData gps;
 };
 #define INFOS__INFORMATION__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&infos__information__descriptor) \
-    , 0, {0,NULL}, 0, 0, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL} }
+    , 0, {0,NULL}, 0, 0, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL}, 0, {0,NULL} }
 
 
 struct  _Infos
